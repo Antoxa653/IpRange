@@ -1,0 +1,14 @@
+target
+bin
+gh-pages
+*.settings
+*.classpath
+*~
+.checkstyle
+*.zip
+*.tar.gz
+*.tar
+*.log
+.metadata
+*.class
+*.db
