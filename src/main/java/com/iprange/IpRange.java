@@ -18,7 +18,7 @@ public class IpRange {
 				for (int i = 0; i < array1String.length; i++) {
 					array1[i] = Integer.parseInt(array1String[i]);
 					array2[i] = Integer.parseInt(array2String[i]);
-				}				
+				}
 				boolean check = false;
 				for (int i = 0; i < array1.length; i++) {
 					if (array1[i] < array2[i]) {
@@ -39,8 +39,7 @@ public class IpRange {
 								break;
 							}
 						}
-						if (!Arrays.equals(array1, array2)) {
-							System.out.println(Arrays.toString(array1));
+						if (!Arrays.equals(array1, array2)) {							
 							for (int i = 0; i < array1.length; i++) {
 								sb.append(array1[i]);
 								if (i < 3) {
@@ -50,8 +49,7 @@ public class IpRange {
 							resultList.add(sb.toString());
 							sb.setLength(0);
 						}
-					}
-					System.out.println("Proccessing done!");
+					}					
 				}
 				else {
 					throw new IllegalArgumentException("First ip adress must be lower than second");
@@ -65,8 +63,5 @@ public class IpRange {
 			throw new NullPointerException("Ip adresses must be not null");
 		}
 		return resultList;
-	}
-
-	public static void main(String[] args) {	
 	}
 }
