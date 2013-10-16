@@ -24,10 +24,10 @@ public class IpRangeTest {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testFirstIpEqualsSecondIp() {
-		String testArray1 = "0.0.0.0";
-		String testArray2 = "0.0.0.0";
+		int[] testArray1 = new int[] { 0, 0, 0, 0 };
+		int[] testArray2 = new int[] { 0, 0, 0, 0 };
 		IpRange ipRange = new IpRange();
-		ipRange.proccessIpRange(testArray1, testArray2);
+		ipRange.isFirstIpLessThenSecond(testArray1, testArray2);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
@@ -35,15 +35,15 @@ public class IpRangeTest {
 		String testArray1 = "0.0.0";
 		String testArray2 = "0.0.0.0";
 		IpRange ipRange = new IpRange();
-		ipRange.proccessIpRange(testArray1, testArray2);
+		ipRange.validateInputIps(testArray1, testArray2);
 	}
 
 	@Test(expected = NullPointerException.class)
 	public void testNullIpArrays() {
 		String testArray1 = null;
 		String testArray2 = null;
-		IpRange ipRange = new IpRange();
-		ipRange.proccessIpRange(testArray1, testArray2);
+		IpRange ipRange = new IpRange();		
+		ipRange.ipsShouldBeNotNull(testArray1, testArray2);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
