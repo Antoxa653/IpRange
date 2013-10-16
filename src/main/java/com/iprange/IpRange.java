@@ -8,10 +8,10 @@ public class IpRange {
 	private Logger log = Logger.getLogger(getClass());
 
 	public void proccessIpRange(String ip1, String ip2) {
-		int[] firstIp = toArray(ip1);
-		int[] secondIp = toArray(ip2);
 		validateIp(ip1);
 		validateIp(ip2);
+		int[] firstIp = toArray(ip1);
+		int[] secondIp = toArray(ip2);		
 		if (isFirstIpLessThenSecond(firstIp, secondIp) && !Arrays.equals(firstIp, secondIp)) {
 			while (!Arrays.equals(firstIp, secondIp)) {
 				firstIp[firstIp.length - 1]++;
