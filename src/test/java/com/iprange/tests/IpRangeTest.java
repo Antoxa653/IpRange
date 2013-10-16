@@ -32,18 +32,16 @@ public class IpRangeTest {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testFirstIpBadFormat() {
-		String testArray1 = "0.0.0";
-		String testArray2 = "0.0.0.0";
+		String testArray1 = "0.0.0";		
 		IpRange ipRange = new IpRange();
-		ipRange.validateInputIps(testArray1, testArray2);
+		ipRange.isIpValid(testArray1);
 	}
 
 	@Test(expected = NullPointerException.class)
 	public void testNullIpArrays() {
-		String testArray1 = null;
-		String testArray2 = null;
+		String testArray1 = null;		
 		IpRange ipRange = new IpRange();		
-		ipRange.ipsShouldBeNotNull(testArray1, testArray2);
+		ipRange.isNotNull(testArray1);
 	}
 
 	@Test(expected = IllegalArgumentException.class)

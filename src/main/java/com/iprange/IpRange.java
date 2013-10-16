@@ -8,7 +8,7 @@ public class IpRange {
 	private Logger log = Logger.getLogger(getClass());
 
 	public void proccessIpRange(String ip1, String ip2) {
-		if (ipsShouldBeNotNull(ip1, ip2) & validateInputIps(ip1, ip2)) {
+		if (isNotNull(ip1) && isNotNull(ip2) && isIpValid(ip1) && isIpValid(ip2)) {
 			String[] array1String = ip1.split("\\.");
 			String[] array2String = ip2.split("\\.");
 			int[] array1 = new int[4];
@@ -17,7 +17,7 @@ public class IpRange {
 				array1[i] = Integer.parseInt(array1String[i]);
 				array2[i] = Integer.parseInt(array2String[i]);
 			}
-			if (isFirstIpLessThenSecond(array1, array2) & !Arrays.equals(array1, array2)) {
+			if (isFirstIpLessThenSecond(array1, array2) && !Arrays.equals(array1, array2)) {
 
 				while (!Arrays.equals(array1, array2)) {
 					array1[array1.length - 1]++;
@@ -64,14 +64,13 @@ public class IpRange {
 			sb.append(separator);
 			separator = ".";
 			sb.append(i);
-
 		}
 		log.debug(sb.toString());
 	}
 
-	public boolean validateInputIps(String ip1, String ip2) {
+	public boolean isIpValid(String ip) {
 		String regex = "^([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])$";
-		if (ip1.matches(regex) && ip2.matches(regex)) {
+		if (ip.matches(regex)) {
 			return true;
 		}
 		else {
@@ -79,8 +78,8 @@ public class IpRange {
 		}
 	}
 
-	public boolean ipsShouldBeNotNull(String ip1, String ip2) {
-		if (ip1 != null & ip2 != null) {
+	public boolean isNotNull(String ip1) {
+		if (ip1 != null) {
 			return true;
 		}
 		else {
