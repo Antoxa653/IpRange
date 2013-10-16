@@ -1,12 +1,17 @@
 package com.iprange;
 
+import java.util.Scanner;
+
 
 public class Loader {
 
 	public static void main(String[] args) {
-		IpRange ipRange = new IpRange();
-		String test1String = "0.0.0.0";
-		String test2String = "0.0.2.0";
+		Scanner in = new Scanner(System.in);
+		System.out.println("Enter start IP:");
+		String test1String = in.nextLine();
+		System.out.println("Enter end IP:");
+		String test2String = in.nextLine();
+		IpRange ipRange = new IpRange();		
 		ipRange.proccessIpRange(test1String, test2String);
 	}
 }
